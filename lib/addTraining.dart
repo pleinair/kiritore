@@ -14,9 +14,61 @@ class AddTraining extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "タイトル",
+                  hintText: "training name"
+                ),
+                maxLines: 1,
               ),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "詳細",
+                  hintText: "training description"
+                ),
+                maxLines: 3,
+              ),
+              Text(
+                'ボイス',
+              ),
+              Switch(
+                value: true,
+                onChanged: (value) {
+                  /*
+                  setState(() {
+                    isSwitched = value;
+                  });
+                  */
+                },
+                activeTrackColor: Colors.lightGreenAccent, 
+                activeColor: Colors.green,
+              ),
+              Text(
+                'タイプ',
+              ),
+              new Radio(
+                value: 0,
+                groupValue: 0,
+                onChanged: (value) {
+                },
+              ),
+              Text(
+                '回数',
+              ),
+              new Radio(
+                value: 1,
+                groupValue: 1,
+                onChanged: (value) {
+                },
+              ),
+              Text(
+                '時間',
+              ),
+              Text(
+                'セット数',
+              ),
+              new Slider(value: 0, onChanged: (value) {})
+              // TODO 回数 or 時間で表示するフォームの制御
             ],
           ),
         ),
