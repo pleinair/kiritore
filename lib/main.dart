@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
+import 'package:kiritore/addTraining.dart';
 
 void main() {
   // Enable integration testing with the Flutter Driver extension.
@@ -27,6 +28,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // new Component() の引数で値の受け渡しが出来るっぽい
+      routes: <String, WidgetBuilder> {
+        '/add_training': (BuildContext context) => new AddTraining(),
+      }
     );
   }
 }
@@ -108,7 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.of(context).pushNamed("/add_training");
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
