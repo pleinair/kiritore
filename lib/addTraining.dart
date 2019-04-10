@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 
-class AddTraining extends StatelessWidget {
+class AddTraining extends StatefulWidget {
   AddTraining();
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,46 +34,56 @@ class AddTraining extends StatelessWidget {
                 ),
                 maxLines: 3,
               ),
-              Text(
-                'ボイス',
-              ),
-              Switch(
-                value: true,
-                onChanged: (value) {
-                  /*
-                  setState(() {
-                    isSwitched = value;
-                  });
-                  */
-                },
-                activeTrackColor: Colors.lightGreenAccent, 
-                activeColor: Colors.green,
-              ),
-              Text(
-                'タイプ',
-              ),
-              new Radio(
-                value: 0,
-                groupValue: 0,
-                onChanged: (value) {
-                },
-              ),
-              Text(
-                '回数',
-              ),
-              new Radio(
-                value: 1,
-                groupValue: 1,
-                onChanged: (value) {
-                },
-              ),
-              Text(
-                '時間',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'タイプ',
+                  ),
+                  Radio(
+                    value: 0,
+                    groupValue: 0,
+                    onChanged: (value) {
+                    },
+                  ),
+                  Text(
+                    '回数',
+                  ),
+                  Radio(
+                    value: 1,
+                    groupValue: 1,
+                    onChanged: (value) {
+                    },
+                  ),
+                  Text(
+                    '時間',
+                  ),
+                  Switch(
+                    value: true,
+                    onChanged: (value) {
+                      /*
+                      setState(() {
+                        isSwitched = value;
+                      });
+                      */
+                    },
+                    activeTrackColor: Colors.lightGreenAccent, 
+                    activeColor: Colors.green,
+                  ),
+                  Text(
+                    'ボイス',
+                  ),
+                ]
               ),
               Text(
                 'セット数',
               ),
-              new Slider(value: 0, onChanged: (value) {})
+              Slider(value: 0, onChanged: (value) {}),
+              OutlineButton(
+                onPressed: (){},
+                child: Text("保存"),
+                borderSide: BorderSide(color: Colors.black),
+              )
               // TODO 回数 or 時間で表示するフォームの制御
             ],
           ),
